@@ -6,7 +6,8 @@ class Thermostat {
   }
   
   getTemperature() {
-    return this.temp;
+    let tempJSON = JSON.stringify(this.temp);
+    return tempJSON;
   }
 
   up() {
@@ -35,11 +36,11 @@ class Thermostat {
 
   energy_usage() {
     if (this.temp < 18) {
-      return 'Low';
+      return JSON.stringify('Low');
     } else if (this.temp <= 25) {
-      return 'Medium';
+      return JSON.stringify('Medium');
     } else {
-      return 'High';
+      return JSON.stringify('High');
     }
   }
 }
