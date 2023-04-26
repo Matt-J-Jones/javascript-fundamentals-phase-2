@@ -12,7 +12,7 @@ describe('Fetch Wether', () => {
 describe('Weather Check', () => {
   it('Returns Mocked Weather Data From Api', async () => {
     const mockWeather = {
-      weather: [{main:'Clouds'}], name: 'London', main: { temp: 10.73, feels_like: 9.11, humidity: 48}
+      weather: [{main:'Clouds'}], name: 'Madrid', main: { temp: 10.73, feels_like: 9.11, humidity: 48}
     };
     
     const mockFetch = jest.fn().mockResolvedValueOnce({
@@ -22,9 +22,8 @@ describe('Weather Check', () => {
     const client = new WeatherClient();
     client.fetch = mockFetch;
     const result = await client.fetchWeatherData('London');
-    
     expect(mockFetch).toHaveBeenCalledWith(expect.stringContaining('London'));
-    expect(result.getCity()).toBe('London');
-    
+
+    expect(result.getCity()).toBe('Madrid');
   })
 })
